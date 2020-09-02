@@ -1,0 +1,45 @@
+
+<mat-dialog-content>
+    <div>
+        <div>
+            <div class="text-center mb-lg">
+            
+                <h4>{{empleado.nombre}} {{empleado.apellidoUno}}</h4>
+            </div>
+            <h5>Correo Electrónico:</h5>
+            <h6>{{empleado.correoElectronico}}</h6>
+            <hr>
+            <h5>Teléfono:</h5>
+            <h6>{{empleado.numeroTelefono}}</h6>
+            <hr>
+            <h5>Fecha Nacimiento:</h5>
+            <h6>{{empleado.fechaNacimiento}}</h6>
+            
+        </div>
+    </div>
+    <br>
+    <div>
+        <h4>Asignar Nuevo Rol</h4>
+        <form [formGroup]="FormGroupRol">
+            <mat-form-field>
+                <mat-label>Rol</mat-label>
+                <mat-select formControlName="Rol">
+                    <mat-option *ngFor="let rol of roles" [value]="rol.id">
+                        {{rol.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+        <div>
+            <button mat-flat-button mat-dialog-close class="example-button-row" [disabled]="!guardar"
+                (click)="guardarRol()">
+                Guardar
+            </button>
+        </div>
+
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-flat-button mat-dialog-close class="example-button-row">Cerrar</button>
+</mat-dialog-actions>

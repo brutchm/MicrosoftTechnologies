@@ -1,0 +1,16 @@
+
+    <p mat-dialog-title>{{data.title}}</p>
+
+    <p display-2>{{data.message}}</p>
+
+
+    <div mat-dialog-actions *ngIf="!data.editar">
+        <button mat-button (click)="onDismiss()">No</button>
+        <button mat-raised-button color="eliminar" (click)="onConfirm()">Sí</button>
+	</div>
+
+	
+    <div mat-dialog-actions *ngIf="data.editar">
+        <button mat-button (click)="onDismiss()">No</button>
+        <button mat-raised-button color="editar" (click)="onConfirm()">Sí</button>
+    </div>
